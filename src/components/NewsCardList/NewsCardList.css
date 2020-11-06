@@ -1,0 +1,23 @@
+.newsCardList__cards {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 400px);
+  gap: 16px;
+  justify-content: center;
+}
+
+
+@media screen and (max-width: 768px) {
+  .newsCardList__cards {
+    grid-template-columns: repeat(auto-fit, 224px);
+    gap: 8px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .newsCardList__cards {
+    grid-template-columns: repeat(auto-fit, 288px);
+    gap: 9px;
+  }
+}

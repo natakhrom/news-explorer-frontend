@@ -1,0 +1,70 @@
+.userInfo__input {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-bottom: 1px solid #E6E8EB;
+  margin-left: 36px;
+  margin-right: 36px;
+  padding: 0;
+}
+
+.userInfo__input_title {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color :#2F71E5;
+  margin: 31px 0 9px;
+}
+
+.userInfo__info {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.userInfo__button {
+  width: 358px;
+  height: 64px;
+  margin: 39px auto 16px;
+  border-radius: 100px;
+  border: none;
+  background-color: #E6E8EB;
+  color: #B6BCBF;
+}
+
+.userInfo__button_active {
+  background-color: #2F71E5;
+  color: white;
+}
+
+.userInfo__infoRegister {
+  display: flex;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.userInfo__infoRegiste_text {
+  margin: 0 5px 0 0;
+}
+
+.userInfo__infoRegister_link {
+  color :#2F71E5;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 528px) {
+  .userInfo__button{
+    width: 288px;
+  }
+}
