@@ -8,7 +8,7 @@ class NewsApi {
         var url = new URL(path);
         url.search = new URLSearchParams(params).toString();
 
-        return fetch(url) 
+        return fetch(url)
             .then(res => {
                 if (res.ok) {
                     return res.json();
@@ -31,7 +31,8 @@ class NewsApi {
 }
 
 const newsApi = new NewsApi({
-    baseUrl: 'https://newsapi.org/v2/everything?',
+    // baseUrl: 'https://newsapi.org/v2/everything?',
+    baseUrl: 'https://nomoreparties.co/news/v2/everything?',
     params: {
         apiKey: '5cd3b37e508846fa9903ccafc3a8a014', // Вынести в .env файл?
         pageSize: 100

@@ -2,7 +2,6 @@ import React from 'react';
 import './Footer.css';
 import iconGitHub from '../../images/iconGitHub.svg'
 import iconFacebook from '../../images/iconFacebook.svg'
-import { Link } from 'react-router-dom';
 
 function Footer() {
     return (

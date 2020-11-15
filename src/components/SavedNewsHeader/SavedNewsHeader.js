@@ -48,7 +48,7 @@ function SavedNewsHeader() {
     <section className="savedNewsHeader">
       <h3 className="savedNewsHeader__heading">Cохранённые статьи</h3>
       <h4 className="savedNewsHeader__title">{currentUser && `${currentUser.name}, у вас ${articleCount}\nсохранённых статей`}</h4>
-      <p className="savedNewsHeader__text">По ключевым словам: {popularArticles.length > 0 && (<span className="keyWord">{`${popularArticles[0].keyword}`}</span>)}{popularArticles.length > 1 && (<span className="keyWord">{`, ${popularArticles[1].keyword}`}</span>)}{popularArticles.length > 2 && (' и ')}{popularArticles.length === 3 && (<span className="keyWord">{`, ${popularArticles[2].keyword}`}</span>)}{popularArticles.length > 3 && (<span className="keyWord">{`${popularArticles.length - 2} другим`}</span>)}</p>
+      <p className="savedNewsHeader__text">По ключевым словам: {popularArticles.length > 0 && (<span className="keyWord">{`${popularArticles[0].keyword}`}</span>)}{popularArticles.length > 1 && (<span className="keyWord">{`, ${popularArticles[1].keyword}`}</span>)}{popularArticles.length > 2 && (' и ')}{popularArticles.length === 3 && (<span className="keyWord">{`${popularArticles[2].keyword}`}</span>)}{popularArticles.length > 3 && (<span className="keyWord">{`${popularArticles.length - 2} другим`}</span>)}</p>
     </section>
   );
 }
