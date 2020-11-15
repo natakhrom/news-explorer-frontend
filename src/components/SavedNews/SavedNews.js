@@ -3,12 +3,12 @@ import './SavedNews.css'
 import SavedNewsHeader from '../SavedNewsHeader/SavedNewsHeader';
 import NewsCardList from '../NewsCardList/NewsCardList';
 
-function SavedNews(props) {
+function SavedNews({news, onAddRemoveArticle}) {
   return (
     <section className="savedNews">
-      <SavedNewsHeader profile={props.profile}/>
+      <SavedNewsHeader/>
       <div className="savedNews__cards">
-        <NewsCardList news={props.news} isSavedCard={true}/>
+        <NewsCardList news={news} isSavedNewsView={true} onButtonClick={onAddRemoveArticle}/>
       </div>
     </section>
   );

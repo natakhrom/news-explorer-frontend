@@ -1,18 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SavedNewsHeader.css';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
-function SavedNewsHeader(props) {
-  const { profile } = props;
+function SavedNewsHeader() {
+  const currentUser = React.useContext(CurrentUserContext);
+  const [popularArticles, setPopularArticles] = useState([]);
+  const [articleCount, setArticleCount] = useState(0);
+
+  React.useEffect(() => {
+    var count = 0;
+
+    if (currentUser) {
+      const statistics = {};
+
+      for (var i = 0; i < currentUser.articles.length; ++i) {
+        const article = currentUser.articles[i];
+
+        if (!statistics.hasOwnProperty(article.keyword)) {
+          statistics[article.keyword] = 0;
+        }
+
+        statistics[article.keyword] += 1;
+      }
+
+      const keywordsFrequency = [];
+
+      for (var prop in statistics) {
+        count += statistics[prop];
+
+        keywordsFrequency.push({
+          keyword: prop,
+          frequency: statistics[prop]
+        });
+      }
+
+      keywordsFrequency.sort((left, right) => {
+        return right.frequency - left.frequency;
+      });
+
+      setPopularArticles(keywordsFrequency);
+    }
+
+    setArticleCount(count);
+  }, [currentUser]);
 
   return (
     <section className="savedNewsHeader">
       <h3 className="savedNewsHeader__heading">Cохранённые статьи</h3>
-      <h4 className="savedNewsHeader__title">{`${profile.name}, у вас ${profile.articles}\nсохранённых статей`}</h4>
-      <p className="savedNewsHeader__text">По ключевым словам: {profile.keyWords.length > 0 && (<span className="keyWord">{`${profile.keyWords[0]}`}</span>)}{profile.keyWords.length > 1 && (<span className="keyWord">{`, ${profile.keyWords[1]}`}</span>)}{profile.keyWords.length > 2 && (' и ')}{profile.keyWords.length > 2 && (<span className="keyWord">{`${profile.keyWords.length - 2} другим`}</span>)}</p>
-      {/* <p className="savedNewsHeader__text">По ключевым словам: {keyWords.map((word, index) => (
-        <span key={index} className="keyWord">{`${word}`}</span>
-      ))}</p> */}
-      {/* <p className="savedNewsHeader__text">По ключевым словам: <span className="keyWord">Природа</span>, <span className="keyWord">Тайга</span> и <span className="keyWord">2-м другим</span></p> */}
+      <h4 className="savedNewsHeader__title">{currentUser && `${currentUser.name}, у вас ${articleCount}\nсохранённых статей`}</h4>
+      <p className="savedNewsHeader__text">По ключевым словам: {popularArticles.length > 0 && (<span className="keyWord">{`${popularArticles[0].keyword}`}</span>)}{popularArticles.length > 1 && (<span className="keyWord">{`, ${popularArticles[1].keyword}`}</span>)}{popularArticles.length > 2 && (' и ')}{popularArticles.length === 3 && (<span className="keyWord">{`, ${popularArticles[2].keyword}`}</span>)}{popularArticles.length > 3 && (<span className="keyWord">{`${popularArticles.length - 2} другим`}</span>)}</p>
     </section>
   );
 }

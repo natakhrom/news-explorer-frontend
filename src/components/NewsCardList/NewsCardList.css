@@ -15,7 +15,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 510px) {
   .newsCardList__cards {
     grid-template-columns: repeat(auto-fit, 288px);
     gap: 9px;

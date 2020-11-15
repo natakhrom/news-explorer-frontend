@@ -14,8 +14,12 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 15px;
-  color :#2F71E5;
+  color: #2F71E5;
   margin: 31px 0 9px;
+}
+
+.userInfo__input:first-of-type > .userInfo__input_title {
+  margin-top: 0;
 }
 
 .userInfo__info {
@@ -24,8 +28,17 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  margin-bottom: 10px;
+  padding: 0;
   border: none;
+  background-color: white;
+  padding-bottom: 10px;
+}
+
+.userInfo__info:focus {
+  outline: none;
+  caret-color: #2F71E5;
+  border-bottom: 1px solid black;
+  line-height: 10px;
 }
 
 .userInfo__button {
@@ -61,6 +74,26 @@
 .userInfo__infoRegister_link {
   color :#2F71E5;
   text-decoration: none;
+}
+
+.userInfo__inputError {
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  color: red;
+  position: absolute;
+  top: 140px;
+  left: 36px;
+}
+
+.userInfo__inputError_hidden {
+  display: none;
+}
+
+.userInfo__inputError:nth-of-type(2) {
+  top: 222px;
 }
 
 @media screen and (max-width: 528px) {

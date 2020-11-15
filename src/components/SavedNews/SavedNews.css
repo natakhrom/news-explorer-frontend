@@ -1,5 +1,6 @@
 .savedNews {
-  width: 100vw;
+  width: 100%;
+  min-height: 100vh;
   background-color: white;
 }
 
@@ -9,18 +10,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  /* .savedNews {
-    max-width: 768px;
-  } */
   .savedNews__cards {
     padding: 32px 0;
   }
 }
 
 @media screen and (max-width: 320px) {
-  /* .savedNews {
-    max-width: 320px;
-  } */
   .savedNews__cards {
     padding: 24px 0;
   }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './PageNotFound.css';
 import Bad from '../../images/bad.png';
 
-function PageNotFound () {
+function PageNotFound() {
   return (
     <div className="not-found">
       <h3 className="not-found__title">

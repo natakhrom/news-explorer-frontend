@@ -1,0 +1,9 @@
+.userInfo__inputError:nth-of-type(3) {
+    top: 307px;
+  }
+
+  .userInfo__inputError:nth-of-type(4) {
+    top: 320px;
+    left: 50%;
+    transform: translate(-50%);
+  }

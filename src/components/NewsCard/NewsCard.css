@@ -1,15 +1,26 @@
 .newsCard {
   height: 576px;
+  width: 100%;
   background-color: white;
   color: #1A1B22;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
+  margin-top: 0;
+}
+
+.newsCard__link {
+  height: 100%;
+  text-decoration: none;
+  display: grid;
+  grid-template-rows: 272px 56px 1fr 40px;
+  justify-content: center;
 }
 
 .newsCard__image {
   width: 100%;
-  height: 272px;
+  height: 100%;
+  grid-row: 1;
 }
 
 .newsCard__keyWord {
@@ -31,7 +42,7 @@
 }
 
 .newsCard__keyWord_hidden {
-  visibility: hidden;
+  display: none;
 }
 
 .newsCard__tooltip {
@@ -51,6 +62,10 @@
   visibility: hidden;
 }
 
+.newsCard__tooltip_hidden {
+  display: none;
+}
+
 .newsCard__icon {
   width: 40px;
   height: 40px;
@@ -61,7 +76,6 @@
   top: 24px;
   right: 24px;
   border-radius: 8px;
-
 }
 
 .newsCard__icon:hover ~ .newsCard__tooltip {
@@ -86,15 +100,34 @@
   background-image: url(../../images/bookmark-active.svg);
 }
 
+.newsCard__icon-savedbookmark {
+  cursor: pointer;
+  background-image: url(../../images/bookmark-color.svg);
+}
+
 .newsCard__date {
+  grid-row: 2;
+  align-self: center;
   font-family: Source Sans Pro, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
   color: #B6BCBF;
-  padding: 20px 24px 12px;
-  margin: 0;
+  margin: 0 24px;
+}
+
+.newsCard__txt {
+  height: 100%;
+  grid-row: 3;
+  overflow: hidden;
+  display: -webkit-box;
+	-webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  word-wrap: break-word;
 }
 
 .newsCard__heading {
@@ -102,24 +135,25 @@
   font-style: normal;
   font-weight: 400;
   font-size: 26px;
-  line-height: 30px;
+  line-height: 28px;
   color: #1A1B22;
-  padding: 0 24px 16px;
-  margin: 0;
+  margin: 0 24px 16px;
 }
 
 .newsCard__text {
   font-family: Roboto, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 17px;
+  line-height: 26px;
   color:#1A1B22;
-  padding: 0 24px;
-  margin: 0;
+  margin: 0 24px;
 }
 
 .newsCard__source {
+  max-width: 352px;
+  grid-row: 4;
+  align-self: center;
   font-family: Roboto Slab, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 700;
@@ -127,57 +161,53 @@
   line-height: 20px;
   color:#B6BCBF;
   text-transform: uppercase;
-  padding: 0 24px 24px;
-  margin: 0;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  margin: 0 24px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 @media screen and (max-width: 768px) {
   .newsCard {
     height: 420px;
   }
+  .newsCard__link {
+    grid-template-rows: 150px 52px 1fr 40px;
+  }
   .newsCard__image {
-    height: 150px;
+    height: 100%;
   }
   .newsCard__date {
-    padding: 16px 16px 0;
+    margin: 0 16px;
   }
   .newsCard__heading {
-    padding: 10px 16px 0;
+    margin: 0 16px 10px;
     font-size: 22px;
-    line-height: 24px;
+    line-height: 25px;
   }
   .newsCard__text {
-    height: 88px;
-    margin: 0;
-    padding: 0 16px;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    margin: 0 16px;
+    line-height: 22px;
   }
   .newsCard__source {
-    padding: 12px 16px 16px;
+    margin: 0 16px;
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 510px) {
   .newsCard {
-    min-height: 440px;
+    height: 440px;
+  }
+  .newsCard__link {
+    grid-template-rows: 196px 50px 1fr 40px;
   }
   .newsCard__image {
-    height: 196px;
+    height: 100%;
   }
-  .newsCard__heading {
-    height: 46px;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .newsCard__txt {
+    -webkit-line-clamp: 6;
   }
   .newsCard__text {
-    margin-top: 10px;
+    line-height: 23px;
   }
 }
