@@ -28,14 +28,9 @@ function App() {
   const [isSearchInProcess, setIsSearchInProcess] = useState(false);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [articlesToShow, setArticlesToShow] = useState(0);
-  // const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [errorMessageText, setErrorMessageText] = useState('');
   const [registeredSuccessfully, setRegisteredSuccessfully] = useState(false);
   const [userAlreadyExists, setUserAlreadyExists] = useState(false);
-
-  // function onErrorMessageClose() {
-  //   setShowErrorMessage(false);
-  // }
 
   function onShowPopupMenu(isOpen) {
     setMenuOpen(isOpen);
@@ -80,7 +75,7 @@ function App() {
           setErrorMessageText('Не удалось получить данные пользователя');
           //console.log(err);
         });
-      } 
+      }
     })
     .catch((err) => {
       setErrorMessageText('Не удалось авторизоваться');
@@ -113,10 +108,10 @@ function App() {
 
   function onAddRemoveArticle(article, remove) {
     if (remove) {
-      onRemoveArticle(article);      
+      onRemoveArticle(article);
     } else {
       onSaveArticle(article);
-    }    
+    }
   }
 
   function onSaveArticle(article) {
@@ -155,7 +150,6 @@ function App() {
   function handleSearchRequest(query) {
 
     if (query === "") {
-      // setShowErrorMessage(true);
       setErrorMessageText('Нужно ввести ключевое слово');
 
       return;
@@ -192,7 +186,7 @@ function App() {
     .finally(() => setIsSearchInProcess(false));
   }
 
-  // function loadUserData(token) {    
+  // function loadUserData(token) {
   //   Promise
   //   .all([mainApi.getUserInfo(token), mainApi.getArticles(token)])
   //   .then(([userInfoResponse, savedNewsResponse]) => {
@@ -249,7 +243,6 @@ function App() {
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
         <PopupWithBurgerMenu isOpen={isMenuOpen} onLogin={onShowLogin} onLogout={onLogout}/>
-        {/* <ErrorMessage isOpen={showErrorMessage} error={errorMessageText} onClose={onErrorMessageClose}/> */}
         <ErrorMessage isOpen={errorMessageText !== ''} error={errorMessageText} onClose={() => setErrorMessageText('')}/>
         <Switch>
             <Route exact path="/">

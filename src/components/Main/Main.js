@@ -9,7 +9,7 @@ import About from '../About/About';
 
 function Main({news, isSearchInProcess, isSearchFailed, searchWasUsed, articlesToShow, onSearch, onAddRemoveArticle, onShowMoreArticles}) {
   return (
-    <main className="content">
+    <main className="content" id="main">
       <SearchForm onSearch={onSearch}/>
       <Preloader showComponent={isSearchInProcess}/>
       <SearchFailed showComponent={isSearchFailed}/>
